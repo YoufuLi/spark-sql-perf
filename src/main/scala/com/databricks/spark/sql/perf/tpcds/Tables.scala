@@ -59,7 +59,7 @@ class Tables(sqlContext: SQLContext, dsdgenDir: String, scaleFactor: Int) extend
           val parallel = if (partitions > 1) s"-parallel $partitions -child $i" else ""
           val commands = Seq(
             "bash", "-c",
-            s"cd $localToolsDir && ./dsdgen -table $name -filter Y -scale $scaleFactor -RNGSEED 100 $parallel")
+            s"cd $localToolsDir && ./dsdgen -table $name -_filter Y -scale $scaleFactor -RNGSEED 100 $parallel")
           println(commands)
           commands.lines
         }
